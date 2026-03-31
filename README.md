@@ -1,24 +1,26 @@
 # Time Series, Panel Data & Forecasting Labs
-Python labs from TS 4016 at Columbia University (Fall 2024), exploring time series analysis, trend modeling, and subgroup decomposition using real-world survey data.
+Python labs from TS 4016 at Columbia University (Fall 2024), covering time series trend analysis, panel data methods, and stationarity testing using real-world survey and administrative data.
 
 ---
 
-## Lab 1 — Belief in the Afterlife: Trend Analysis (GSS Data)
+## Lab 1 — Belief in the Afterlife: Trend Analysis
+**Data:** General Social Survey (GSS), 1972–2022  
+**Methods:** OLS with linear time trend, year fixed effects (dummies), subgroup analysis, interaction terms  
+**Key finding:** Contrary to prior literature, belief in the afterlife has been increasing over time (+0.09 pp/year), and this trend holds similarly for both religious and non-religious respondents.  
+**Libraries:** `pandas`, `numpy`, `statsmodels`, `matplotlib`, `seaborn`
 
-**Research question:** Has belief in the afterlife in the United States changed over the past 50 years? Does it differ between people who identify with a religion vs. those who don't?
+---
 
-**Data:** General Social Survey (GSS), 1972–2022
+## Lab 2 — Education Spending & Life Expectancy: Fixed Effects
+**Data:** Quality of Government (QoG) Basic Dataset, 188 countries, 1970–2021  
+**Methods:** Pooled OLS with year dummies, two-way fixed effects (PanelOLS), additional predictor (urbanization)  
+**Key finding:** Education spending shows a positive but statistically insignificant effect on life expectancy once country and year fixed effects are applied. Urbanization partially mediates the relationship (β = 0.09, p < 0.05).  
+**Libraries:** `pandas`, `statsmodels`, `linearmodels`
 
-**Methods:**
-- Binary outcome construction from categorical survey responses
-- Linear time trend OLS regression
-- Year fixed effects (dummy variable) regression
-- Subgroup analysis by religious affiliation
-- Interaction term modeling (year × no-religion)
+---
 
-**Key findings:**
-- Contrary to prior literature (Harley & Firebaugh, 1993), belief in the afterlife has been *increasing* slightly over time (+0.09 pp/year)
-- Those with no religious affiliation are ~30 percentage points less likely to believe in the afterlife, but their trend mirrors the religious group
-- The year × religion interaction is not statistically significant — both groups are increasing at the same rate
-
-**Libraries:** `pandas`, `numpy`, `statsmodels`, `matplotlib`, `seaborn`, `scipy`
+## Lab 3 — Crime Perception & Homicide Rate: Time Series Analysis
+**Data:** Gallup annual polling (public crime perception) + FBI homicide statistics, 1989–present  
+**Methods:** OLS on levels with linear time trend, first-differencing for stationarity, Durbin-Watson diagnostics  
+**Key finding:** Level regression shows a strong correlation (β = 8.4) but significant autocorrelation (DW = 0.83). After first-differencing, the relationship holds (β = 7.3, p < 0.01) with substantially reduced autocorrelation (DW = 2.67).  
+**Libraries:** `pandas`, `numpy`, `statsmodels`, `matplotlib`, `seaborn`
