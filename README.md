@@ -1,5 +1,5 @@
 # Time Series, Panel Data & Forecasting Labs
-Python labs from TS 4016 at Columbia University (Fall 2024), covering time series trend analysis, panel data methods, and stationarity testing using real-world survey and administrative data.
+Python labs from TS 4016 at Columbia University (Fall 2025), covering time series trend analysis, panel data methods, and stationarity testing using real-world survey and administrative data.
 
 ---
 
